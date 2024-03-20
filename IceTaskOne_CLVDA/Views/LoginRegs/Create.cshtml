@@ -1,0 +1,54 @@
+﻿@model IceTaskOne_CLVDA.Models.Login.LoginReg
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label"></label>
+                <input asp-for="username" class="form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <br /> <br />
+            <button id="btnLogin" type="button" style="background-color: maroon;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 10px;
+                width: 200px;
+                height: 50px;">
+                Login
+            </button>
+            <script>
+                    var button = document.getElementById("btnLogin");
+                    button.addEventListener("click", function () {
+                    window.location.href = '@Url.Action("Index", "Tasks")'
+                });
+            </script>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="CreateReg" style="color: maroon">Dont have an account? Register here</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

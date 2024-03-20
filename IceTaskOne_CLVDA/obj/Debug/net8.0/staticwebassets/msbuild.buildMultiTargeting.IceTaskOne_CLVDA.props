@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\IceTaskOne_CLVDA.props" />
+</Project>

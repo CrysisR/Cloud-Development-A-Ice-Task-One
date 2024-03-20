@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IceTaskOne_CLVDA.Models.Tasks.Tasks>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>All Tasks</h1>
+
+<p>
+    <a asp-action="Create" style="color: maroon">Add new task</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.taskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.taskState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.taskGiver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskDueDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskGiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskDueDate)
+            </td>
+            <td>
+                    <a asp-action="Edit" style="color: maroon" asp-route-id="@item.taskId">Edit</a> |
+                    <a asp-action="Details" style="color: maroon" asp-route-id="@item.taskId">Details</a> |
+                    <a asp-action="Delete" style="color: maroon" asp-route-id="@item.taskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

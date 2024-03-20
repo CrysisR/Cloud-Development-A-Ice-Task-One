@@ -1,0 +1,42 @@
+﻿@model IceTaskOne_CLVDA.Models.Tasks.Tasks
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details of task</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.taskName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.taskName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.taskState)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.taskState)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.taskGiver)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.taskGiver)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TaskDueDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TaskDueDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.taskId" style="color:maroon">Edit current task</a> |
+    <a asp-action="Index" style="color:maroon">Back to tasks</a>
+</div>

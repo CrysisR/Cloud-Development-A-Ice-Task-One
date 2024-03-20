@@ -1,0 +1,63 @@
+﻿@model IceTaskOne_CLVDA.Models.Tasks.Tasks
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit current task</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="taskId" />
+            <br />
+            <div class="form-group">
+                <label asp-for="taskName" class="control-label"></label>
+                <input asp-for="taskName" class="form-control" />
+                <span asp-validation-for="taskName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="taskState" class="control-label"></label>
+                <input asp-for="taskState" class="form-control" />
+                <span asp-validation-for="taskState" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="taskGiver" class="control-label"></label>
+                <input asp-for="taskGiver" class="form-control" />
+                <span asp-validation-for="taskGiver" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="TaskDueDate" class="control-label"></label>
+                <input asp-for="TaskDueDate" class="form-control" />
+                <span asp-validation-for="TaskDueDate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" style="background-color: maroon;
+                border: none;
+                color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                    width: 150px;
+                    height: 50px;" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index" style="color:maroon">Back to Task List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
